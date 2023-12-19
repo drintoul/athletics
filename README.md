@@ -1,2 +1,2 @@
-# athletics
-Browse Athletics MySQL database
+# streamlit-mysql-example
+Connect securely and Browse MySQL database
