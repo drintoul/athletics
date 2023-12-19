@@ -1,5 +1,6 @@
 import streamlit as st
 
+@st.data_cache
 conn = st.experimental_connection('pets_db', type='sql')
 pet_owners = conn.query('select * from pet_owners', ttl=3600)
 
