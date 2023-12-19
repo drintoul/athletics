@@ -1,4 +1,5 @@
 import streamlit as st
+import sqlalchemy
 
 conn = st.experimental_connection('pets_db', type='sql')
 
