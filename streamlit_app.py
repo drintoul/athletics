@@ -8,7 +8,7 @@ def init_connection():
 conn = init_connection()
 
 @st.cache_data(ttl=600)
-pet_owners = conn.query("select * from pet_owners")
+pet_owners = conn.query("select * from pet_owners;")
 
 for row in pet_owners.itertuples():
     st.write(f"{row.name} has a :{row.pet}:")
