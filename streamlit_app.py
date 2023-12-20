@@ -24,7 +24,7 @@ results = cursor.fetchall()
 # Display results in Streamlit
 st.write("Results from MySQL:")
 for row in results.itertuples():
-    st.write(f"{row.name} has a :{row.pet}:")
+    st.write(f"{row.owner} has a :{row.pet}:")
 
 # Close the database connection
 cursor.close()
