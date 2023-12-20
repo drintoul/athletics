@@ -2,7 +2,7 @@ import streamlit as st
 import mysql.connector
 
 def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql"])
+    return mysql.connector.connect()
 
 conn = init_connection()
 
