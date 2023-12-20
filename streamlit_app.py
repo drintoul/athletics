@@ -1,6 +1,5 @@
 import streamlit as st
 import pymysql
-import toml
 
 # Database connection details
 host = st.secrets["database"]["host"]
