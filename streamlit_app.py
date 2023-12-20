@@ -3,11 +3,11 @@ import pymysql
 import toml
 
 # Database connection details
-host = st.secrets["host"]
-user = st.secrets["user"]
-password = st.secrets["password"]
-database = st.secrets["name"]
-port = st.secrets["port"]
+host = st.secrets["database"]["host"]
+user = st.secrets["database"]["user"]
+password = st.secrets["database"]["password"]
+database = st.secrets["database"]["name"]
+port = st.secrets["database"]["port"]
 
 # Connect to the database
 conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
