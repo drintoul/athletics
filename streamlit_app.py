@@ -1,7 +1,13 @@
 import streamlit as st
+import mysql.connector
 
-conn = st.experimental_connection('pets_db', type='sql')
+@st.cache_resource
+def init_connection():
+    return mysql.connector.connect(**st.secrets["mysql"])
 
+conn = init_connection()
+
+@st.cache_data(ttl=600)
 pet_owners = conn.query('select * from pet_owners', ttl=3600)
 
 for row in pet_owners.itertuples():
