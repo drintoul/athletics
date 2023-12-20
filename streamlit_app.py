@@ -1,12 +1,17 @@
 import streamlit as st
 import pymysql
+import toml
+
+# Load configuration from config.toml file
+config = toml.load("config.toml")
+db_config = config["database"]
 
 # Database connection details
-host = "http://47.204.128.249"
-user = "python"
-password = "python"
-database = "pets_db"
-port = 3306
+host = db_config["host"]
+user = db_config["user"]
+password = db_config["password"]
+database = db_config["name"]
+port = db_config["port"]
 
 # Connect to the database
 conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
@@ -16,7 +21,7 @@ cursor = conn.cursor()
 st.title("MySQL-Streamlit App")
 
 # Example query
-query = "select * from pet_owners"
+query = "SELECT * FROM pet_owners LIMIT 5"
 cursor.execute(query)
 results = cursor.fetchall()
 
@@ -28,3 +33,4 @@ for result in results:
 # Close the database connection
 cursor.close()
 conn.close()
+
