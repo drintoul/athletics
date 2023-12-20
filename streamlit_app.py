@@ -1,12 +1,30 @@
 import streamlit as st
-import mysql.connector
+import pymysql
 
-def init_connection():
-    return mysql.connector.connect()
+# Database connection details
+host = "http://47.204.128.249"
+user = "python"
+password = "python"
+database = "pets_db"
+port = 3306
 
-conn = init_connection()
+# Connect to the database
+conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
+cursor = conn.cursor()
 
-pet_owners = conn.query("select * from pet_owners;")
+# Streamlit app
+st.title("MySQL-Streamlit App")
 
-for row in pet_owners.itertuples():
-    st.write(f"{row.name} has a :{row.pet}:")
+# Example query
+query = "select * from pet_owners"
+cursor.execute(query)
+results = cursor.fetchall()
+
+# Display results in Streamlit
+st.write("Results from MySQL:")
+for result in results:
+    st.write(result)
+
+# Close the database connection
+cursor.close()
+conn.close()
