@@ -23,7 +23,8 @@ results = cursor.fetchall()
 
 # Display results in Streamlit
 st.write("Results from MySQL:")
-st.write(results)
+for row in itertuples():
+  st.write(row.owner, row.pet)
 
 # Close the database connection
 cursor.close()
