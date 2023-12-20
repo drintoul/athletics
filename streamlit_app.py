@@ -9,12 +9,11 @@ password = st.secrets["database"]["password"]
 database = st.secrets["database"]["name"]
 port = st.secrets["database"]["port"]
 
-st.write(host, user, password, database, port)
-
 # Connect to the database
 conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
 cursor = conn.cursor()
 
+st.write(cursor)
 # Streamlit app
 #st.title("MySQL-Streamlit App")
 
