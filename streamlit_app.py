@@ -12,8 +12,8 @@ port = st.secrets["database"]["port"]
 st.write(host, user, password, database, port)
 
 # Connect to the database
-#conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
-#cursor = conn.cursor()
+conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
+cursor = conn.cursor()
 
 # Streamlit app
 #st.title("MySQL-Streamlit App")
@@ -29,6 +29,6 @@ st.write(host, user, password, database, port)
 #    st.write(result.owner, f":{result.pet}:")
 
 # Close the database connection
-#cursor.close()
-#conn.close()
+cursor.close()
+conn.close()
 
