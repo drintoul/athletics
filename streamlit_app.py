@@ -17,6 +17,7 @@ st.title("MySQL-Streamlit App")
 
 # Example query
 query = "SELECT * FROM pet_owners LIMIT 5"
+@st.cache_data(ttl=3600*6)
 cursor.execute(query)
 results = cursor.fetchall()
 
