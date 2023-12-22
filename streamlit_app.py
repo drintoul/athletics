@@ -9,8 +9,8 @@ database = st.secrets["database"]["name"]
 port = st.secrets["database"]["port"]
 
 # Connect to the database
-conn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
-cursor = conn.cursor()
+cnxn = pymysql.connect(host=host, user=user, password=password, database=database, port=port)
+cursor = cnxn.cursor()
 
 # Streamlit app
 st.title("MySQL-Streamlit App")
@@ -28,5 +28,5 @@ for row in results:
 
 # Close the database connection
 cursor.close()
-conn.close()
+cnxn.close()
 
